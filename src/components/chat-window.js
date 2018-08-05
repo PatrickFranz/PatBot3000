@@ -14,13 +14,19 @@ class ChatWindow extends Component{
     }
   }
 
+  scrollToBottom(){
+    const msgWindow = document.querySelector('.message-window');
+    msgWindow.scrollTop = msgWindow.scrollHeight;
+  }
+
   handleInput = incResponse => {
     this.setState({dialog: [...this.state.dialog, incResponse]});
     this.getIntent(incResponse.text);
+    this.scrollToBottom();
   }
 
   getIntent = chatTxt => {
-    const cleanText = chatTxt.replace(/[^\w]/g, '');
+    const cleanText = chatTxt.replace(/[^\w ]/g, '');
     fetch(`https://api.wit.ai/message?v=20180803&q=${cleanText}`,
       {
         method: 'POST',
@@ -30,9 +36,11 @@ class ChatWindow extends Component{
         }
     }).then(resp => resp.json())
       .then(data => {
-        const resp = handleIntents(data);
-        const randResponse = resp[Math.floor(Math.random()*resp.length)];
-        this.setState({dialog: [...this.state.dialog, {user: 'PatBot', icon: patBotImg, text: randResponse, timestamp: Date.now()}]});
+        const responses = handleIntents(data);
+        responses.map( response =>{
+          this.setState({dialog: [...this.state.dialog, response]});
+          this.scrollToBottom();
+        });
       })
   }
 

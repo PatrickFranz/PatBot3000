@@ -46,4 +46,5 @@
 
 .message-window {
   grid-area: 'messages';
-  background: #eee; }
+  background: #eee;
+  overflow: scroll; }
