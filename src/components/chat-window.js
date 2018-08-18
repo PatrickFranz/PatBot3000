@@ -48,7 +48,7 @@ class ChatWindow extends Component{
     return(
       <div className="chat-window container-fluid">
         <div className="row title-block">
-          <span className=''>PatBot 3000</span>
+          <span className=''>Bot 3000</span>
         </div>
         <MessageWindow dialog={this.state.dialog}/>
         <ChatInput handleInput={this.handleInput}/>
