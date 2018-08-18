@@ -1,0 +1,5 @@
+.message-window{
+  grid-area: 'messages';
+  background: $gray-lightest;
+  overflow: scroll;
+}

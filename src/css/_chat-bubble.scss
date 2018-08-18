@@ -1,0 +1,13 @@
+.chat-bubble{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 5px;
+  background: $gray-1;
+  margin: 10px 5px;
+  padding: 5px 8px 5px 2px;
+  border-radius: 5px;
+
+  .icon-img{
+    max-width: 50px;
+  }
+}

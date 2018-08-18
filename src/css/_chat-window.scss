@@ -1,0 +1,34 @@
+/*****  _chat-window.scss  *****/
+* {
+  box-sizing: border-box; 
+}
+  
+.chat-window {
+  display: grid;
+  justify-self: center;
+  grid-template-areas: 
+  'title'
+  'messages'
+  'input';
+  padding: 0;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  background: $gray_lightest;
+  max-width: 500px;
+  height: 98vh;
+  
+  .title-block{
+    margin: 0;
+    grid-area: 'title';
+    background: $gray_2;
+    color: $gray-lightest;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.2rem;
+    padding: 0.75rem 0;
+  }
+
+  
+}
+
+/*****  END _chat-window.scss  *****/
